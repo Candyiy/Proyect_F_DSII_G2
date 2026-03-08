@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="max-w-6xl mx-auto px-4 py-8 flex flex-col lg:flex-row gap-6">
+
+    <!-- Sidebar izquierdo: Perfil + Post Nuevo Trabajo -->
+    <div class="w-full lg:w-64 flex-shrink-0 space-y-4">
+
+        <!-- Perfil compacto -->
+        <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center text-center sticky top-6">
+            <div class="w-20 h-20 bg-gray-300 rounded-full mb-2"></div>
+            <h2 class="font-semibold text-lg">Juan Pérez</h2>
+            <p class="text-sm text-gray-500">Fullstack Dev</p>
+            <a href="/profile/" class="mt-2 inline-block bg-blue-500 text-white px-3 py-1.5 rounded-full hover:bg-blue-600 text-sm">Ver perfil</a>
+        </div>
+
+        <!-- Card compacto para postear nuevo trabajo -->
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="font-semibold text-md mb-2">Publicar nuevo trabajo</h3>
+            <input type="text" placeholder="Título del puesto" class="w-full border rounded-lg px-2 py-1 mb-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <input type="text" placeholder="Empresa" class="w-full border rounded-lg px-2 py-1 mb-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <select class="w-full border rounded-lg px-2 py-1 mb-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option>Tipo de contrato</option>
+                <option>Full-time</option>
+                <option>Medio tiempo</option>
+                <option>Remoto</option>
+            </select>
+            <textarea placeholder="Descripción del trabajo" class="w-full border rounded-lg px-2 py-1 mb-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+            <button class="bg-blue-500 text-white px-3 py-1.5 rounded-full hover:bg-blue-600 text-sm font-medium w-full transition">Publicar</button>
+        </div>
+
+    </div>
+
+    <!-- Feed derecho: Trabajos simulados centrados -->
+    <div class="flex-1 flex flex-col items-center space-y-6">
+
+        <!-- Job card -->
+        <div class="bg-white shadow rounded-lg p-4 hover:shadow-lg transition w-full max-w-2xl flex flex-col md:flex-row justify-between gap-4 items-center">
+            <div class="flex gap-3 md:flex-1">
+                <div class="w-14 h-14 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                    <h2 class="text-lg font-semibold">Desarrollador Django</h2>
+                    <p class="text-gray-500 text-sm">TechCorp · Madrid, España</p>
+                    <div class="flex gap-1 mt-1 flex-wrap">
+                        <span class="bg-green-100 text-green-800 text-xs px-1.5 py-0.5 rounded-full">Full-time</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5 rounded-full">Remoto</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-1.5 py-0.5 rounded-full">Senior</span>
+                    </div>
+                    <p class="text-gray-600 mt-1 text-sm">Buscamos un desarrollador con experiencia en Django y TailwindCSS para proyectos web modernos y escalables.</p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 justify-between items-start md:items-end mt-2 md:mt-0">
+                <span class="text-xs text-gray-400">Publicado hace 2 días</span>
+                <div class="flex gap-2">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-full hover:bg-blue-600 text-xs">Aplicar</button>
+                    <button class="border border-gray-300 px-3 py-1 rounded-full hover:bg-gray-100 text-xs">Guardar</button>
+                    <button class="border border-gray-300 px-3 py-1 rounded-full hover:bg-gray-100 text-xs">Compartir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job card -->
+        <div class="bg-white shadow rounded-lg p-4 hover:shadow-lg transition w-full max-w-2xl flex flex-col md:flex-row justify-between gap-4 items-center">
+            <div class="flex gap-3 md:flex-1">
+                <div class="w-14 h-14 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                    <h2 class="text-lg font-semibold">Diseñador UI/UX</h2>
+                    <p class="text-gray-500 text-sm">CreativaStudio · Barcelona, España</p>
+                    <div class="flex gap-1 mt-1 flex-wrap">
+                        <span class="bg-green-100 text-green-800 text-xs px-1.5 py-0.5 rounded-full">Medio tiempo</span>
+                        <span class="bg-yellow-100 text-yellow-800 text-xs px-1.5 py-0.5 rounded-full">Junior</span>
+                    </div>
+                    <p class="text-gray-600 mt-1 text-sm">Se busca diseñador UI/UX con experiencia en prototipos y diseño responsive para mejorar la experiencia de nuestros productos digitales.</p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 justify-between items-start md:items-end mt-2 md:mt-0">
+                <span class="text-xs text-gray-400">Publicado hace 5 días</span>
+                <div class="flex gap-2">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-full hover:bg-blue-600 text-xs">Aplicar</button>
+                    <button class="border border-gray-300 px-3 py-1 rounded-full hover:bg-gray-100 text-xs">Guardar</button>
+                    <button class="border border-gray-300 px-3 py-1 rounded-full hover:bg-gray-100 text-xs">Compartir</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Job card -->
+        <div class="bg-white shadow rounded-lg p-4 hover:shadow-lg transition w-full max-w-2xl flex flex-col md:flex-row justify-between gap-4 items-center">
+            <div class="flex gap-3 md:flex-1">
+                <div class="w-14 h-14 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <div>
+                    <h2 class="text-lg font-semibold">Marketing Digital</h2>
+                    <p class="text-gray-500 text-sm">MarketPlus · Valencia, España</p>
+                    <div class="flex gap-1 mt-1 flex-wrap">
+                        <span class="bg-green-100 text-green-800 text-xs px-1.5 py-0.5 rounded-full">Full-time</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs px-1.5 py-0.5 rounded-full">Remoto</span>
+                    </div>
+                    <p class="text-gray-600 mt-1 text-sm">Profesional en marketing digital con experiencia en campañas en redes sociales, SEO y SEM.</p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-2 justify-between items-start md:items-end mt-2 md:mt-0">
+                <span class="text-xs text-gray-400">Publicado hace 1 semana</span>
+                <div class="flex gap-2">
+                    <button class="bg-blue-500 text-white px-3 py-1 rounded-full hover:bg-blue-600 text-xs">Aplicar</button>
+                    <button class="border border-gray-300 px-3 py-1 rounded-full hover:bg-gray-100 text-xs">Guardar</button>
+                    <button class="border border-gray-300 px-3 py-1 rounded-full hover:bg-gray-100 text-xs">Compartir</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
