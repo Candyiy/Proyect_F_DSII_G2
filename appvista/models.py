@@ -9,6 +9,7 @@ class Educacion(models.Model):
     descripcion = models.TextField(blank=True)
 
     def __str__(self):
+<<<<<<< HEAD
         return f"{self.titulo} - {self.institucion}"
     
 class Servicio(models.Model):
@@ -27,3 +28,6 @@ class Habilidad(models.Model):
 
     def __str__(self):
         return f"{self.nombre} - {self.nivel}"
+=======
+        return f"{self.titulo} - {self.institucion}"
+>>>>>>> 5f3ae44d9e6ece5b9db81cfaac1b3de8adf6f898
