@@ -15,7 +15,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from appvista import views
 
 urlpatterns = [
@@ -25,6 +25,8 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('job/', views.job, name='job'),
     path('mensajes/', views.mensajes, name='mensajes'),
+    path('empleos/', include('job.urls')),
     path('profile/', views.profile, name='profile'),
+    path('listaPostulantes/', views.listapostulantes, name='lista_postulantes'),
 
 ]
