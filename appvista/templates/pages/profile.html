@@ -27,10 +27,43 @@
         <div class="flex-1 flex flex-col gap-3">
 
             <!-- Servicios -->
+
+            <!---->
+            <!---->
+            <!---->
+            <!-- Form para agregar servicio -->
+            <!-- MODAL SERVICIO -->
+            <div id="modalServicio" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+
+                <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5">
+
+                    <div class="flex justify-between items-center mb-3">
+                        <h2 class="font-semibold text-lg">Agregar Servicio</h2>
+                        <button onclick="closeModal('modalServicio')" class="text-gray-500 hover:text-gray-700">✕</button>
+                    </div>
+
+                    <form method="POST" class="space-y-3">
+                        {% csrf_token %}
+                        {{ servicio_form.as_p }}
+
+                        <button type="submit" name="guardar_servicio"
+                        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">
+                        Guardar Servicio
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+            <!---->
+            <!---->
+            <!---->
+
             <div class="bg-white rounded-lg shadow p-3">
                 <div class="flex justify-between items-center mb-1">
                     <h3 class="font-semibold text-md">Servicios</h3>
-                    <button class="text-blue-500 text-xs font-semibold hover:bg-blue-50 px-2 py-0.5 rounded-full">Añadir</button>
+
+                    <button onclick="openModal('modalServicio')" class="text-blue-500 text-xs font-semibold hover:bg-blue-50 px-2 py-0.5 rounded-full">
+                    Añadir</button>
                 </div>
                 <ul class="text-gray-700 space-y-1 text-sm">
                     <li>Desarrollo Web</li>
@@ -39,11 +72,45 @@
                 </ul>
             </div>
 
+
+            <!---->
+            <!---->
+            <!---->
+            <!-- Form para agregar habilidad -->
+                <!-- MODAL HABILIDAD -->
+                <div id="modalHabilidad" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+
+                    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5">
+
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="font-semibold text-lg">Agregar Habilidad</h2>
+                            <button onclick="closeModal('modalHabilidad')" class="text-gray-500">✕</button>
+                        </div>
+
+                        <form method="POST" class="space-y-3">
+                            {% csrf_token %}
+                            {{ habilidad_form.as_p }}
+
+                            <button type="submit" name="guardar_habilidad"
+                            class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 w-full">
+                            Guardar Habilidad
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            <!---->
+            <!---->
+            <!---->
+
+
             <!-- Habilidades -->
             <div class="bg-white rounded-lg shadow p-3">
                 <div class="flex justify-between items-center mb-1">
                     <h3 class="font-semibold text-md">Habilidades</h3>
-                    <button class="text-blue-500 text-xs font-semibold hover:bg-blue-50 px-2 py-0.5 rounded-full">Añadir</button>
+                    <button onclick="openModal('modalHabilidad')" class="text-blue-500 text-xs font-semibold hover:bg-blue-50 px-2 py-0.5 rounded-full">
+                    Añadir
+                    </button>
                 </div>
                 <div class="flex flex-wrap gap-1.5 text-sm">
                     <span class="bg-gray-200 px-2 py-0.5 rounded-full">Python</span>
@@ -77,21 +144,39 @@
             <!---->
             <!---->
             <!---->
-                <!-- form para agregar educación -->
-                <div class="bg-white rounded-lg shadow p-3 mb-4">
-                    <h2 class="font-semibold text-md mb-2">Agregar Educación</h2>
-                    <form method="POST" class="space-y-2">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600">Guardar</button>
-                    </form>
+                <!-- MODAL EDUCACION -->
+                <div id="modalEducacion" class="fixed inset-0 bg-black bg-opacity-40 hidden items-center justify-center z-50">
+
+                    <div class="bg-white rounded-lg shadow-lg w-full max-w-md p-5">
+
+                        <div class="flex justify-between items-center mb-3">
+                            <h2 class="font-semibold text-lg">Agregar Educación</h2>
+                            <button onclick="closeModal('modalEducacion')" class="text-gray-500">✕</button>
+                        </div>
+
+                        <form method="POST" class="space-y-3">
+                            {% csrf_token %}
+                            {{ educacion_form.as_p }}
+
+                            <button type="submit" name="guardar_educacion"
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
+                            Guardar Educación
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
+            <!---->
+            <!---->
+            <!---->
 
             <!-- Educación existente -->
             <div class="bg-white rounded-lg shadow p-3">
                 <div class="flex justify-between items-center mb-1">
                     <h3 class="font-semibold text-md">Educación</h3>
-                    <button class="text-blue-500 text-xs font-semibold hover:bg-blue-50 px-2 py-0.5 rounded-full">Añadir</button>
+                    <button onclick="openModal('modalEducacion')" class="text-blue-500 text-xs font-semibold hover:bg-blue-50 px-2 py-0.5 rounded-full">
+                    Añadir
+                    </button>
                 </div>
 
                 <div class="mb-2">
@@ -111,5 +196,16 @@
 
     </div>
 </div>
+<script>
 
+function openModal(id){
+    document.getElementById(id).classList.remove("hidden");
+    document.getElementById(id).classList.add("flex");
+}
+
+function closeModal(id){
+    document.getElementById(id).classList.add("hidden");
+}
+
+</script>
 {% endblock %}

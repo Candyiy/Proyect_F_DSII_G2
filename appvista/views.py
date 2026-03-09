@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 
-from .forms import EducacionForm
+from .forms import EducacionForm, ServicioForm, HabilidadForm
 from job.models import OfertaLaboral
 
 
@@ -21,12 +21,36 @@ def listapostulantes(request):
     return render(request, "pages/listapostulantes.html")
 
 def profile(request):
-    # mostrar formulario de educación y procesar envíos
+
+    educacion_form = EducacionForm()
+    servicio_form = ServicioForm()
+    habilidad_form = HabilidadForm()
+
     if request.method == 'POST':
-        form = EducacionForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('profile')
-    else:
-        form = EducacionForm()
-    return render(request, "pages/profile.html", {"form": form})
+
+        # FORMULARIO EDUCACION
+        if 'guardar_educacion' in request.POST:
+            educacion_form = EducacionForm(request.POST)
+            if educacion_form.is_valid():
+                educacion_form.save()
+                return redirect('profile')
+
+        # FORMULARIO SERVICIO
+        elif 'guardar_servicio' in request.POST:
+            servicio_form = ServicioForm(request.POST)
+            if servicio_form.is_valid():
+                servicio_form.save()
+                return redirect('profile')
+
+        # FORMULARIO HABILIDAD
+        elif 'guardar_habilidad' in request.POST:
+            habilidad_form = HabilidadForm(request.POST)
+            if habilidad_form.is_valid():
+                habilidad_form.save()
+                return redirect('profile')
+
+    return render(request, "pages/profile.html", {
+        "educacion_form": educacion_form,
+        "servicio_form": servicio_form,
+        "habilidad_form": habilidad_form,
+    })
