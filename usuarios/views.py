@@ -94,31 +94,6 @@ def profile(request):
 
     usuario = request.user
 
-    # EMPRESA
-    if usuario.tipo_usuario == "empresa":
-
-        empresa = Empresa.objects.get(usuario=usuario)
-
-        if request.method == "POST":
-            empresa_form = EmpresaForm(request.POST, request.FILES, instance=empresa)
-
-            if empresa_form.is_valid():
-                empresa_form.save()
-                messages.success(request, "Datos de empresa actualizados")
-                return redirect("profile")
-
-        else:
-            empresa_form = EmpresaForm(instance=empresa)
-
-        return render(request, "usuarios/profileEmpresa.html", {
-            "usuario": usuario,
-            "empresa_form": empresa_form,
-            "empresa": empresa
-        })
-
-
-    # USUARIO NORMAL
-
     habilidades = Habilidad.objects.filter(usuario=usuario)
     servicios = Servicio.objects.filter(usuario=usuario)
     experiencias = Experiencia.objects.filter(usuario=usuario)
