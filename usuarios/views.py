@@ -159,7 +159,7 @@ def profile(request):
                 messages.success(request, "Experiencia guardada")
                 return redirect("profile")
 
-    return render(request, "usuarios/profileUsuario.html", {
+    return render(request, "usuarios/profile.html", {
 
         "usuario": usuario,
 
