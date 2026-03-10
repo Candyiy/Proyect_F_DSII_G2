@@ -11,16 +11,12 @@
         <div class="w-80 flex-shrink-0 space-y-6">
 
             <!-- Perfil siempre visible -->
-<<<<<<< HEAD
             <div class="bg-white rounded-lg shadow p-4 flex flex-col items-center text-center sticky top-6">
                 <div class="w-24 h-24 bg-gray-300 rounded-full mb-3"></div>
                 <h2 class="font-semibold text-lg">Juan Pérez</h2>
                 <p class="text-sm text-gray-500">Desarrollador Fullstack</p>
                 <a href="/profile/" class="mt-3 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Ver perfil completo</a>
             </div>
-=======
-            {% include "components/user_card.html" %}
->>>>>>> 5f3ae44d9e6ece5b9db81cfaac1b3de8adf6f898
 
             <!-- Sugerencias de personas -->
             <div class="bg-white rounded-lg shadow p-4">
@@ -71,28 +67,6 @@
                 <button class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Ver mi perfil</button>
             </div>
 
-<<<<<<< HEAD
-=======
-            <!-- Publicación simulada -->
-            <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                <div class="flex items-center gap-4 mb-4">
-                    <div class="w-12 h-12 bg-gray-300 rounded-full"></div>
-                    <div>
-                        <p class="font-semibold">María López</p>
-                        <p class="text-sm text-gray-400">2 horas · Publicación</p>
-                    </div>
-                </div>
-                <p class="text-gray-700 mb-4">
-                    ¡Empezando un nuevo proyecto en Django y TailwindCSS! Muy emocionada de compartir mis avances.
-                </p>
-                <div class="flex gap-4 text-gray-500 text-sm">
-                    <button class="hover:text-blue-500">👍 Me gusta</button>
-                    <button class="hover:text-blue-500">💬 Comentar</button>
-                    <button class="hover:text-blue-500">🔗 Compartir</button>
-                </div>
-            </div>
-
->>>>>>> 5f3ae44d9e6ece5b9db81cfaac1b3de8adf6f898
             <!-- Ofertas laborales -->
             {% for oferta in ofertas %}
             <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">

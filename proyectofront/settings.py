@@ -39,10 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'job',
-<<<<<<< HEAD
-=======
     'usuarios'
->>>>>>> 5f3ae44d9e6ece5b9db81cfaac1b3de8adf6f898
 ]
 
 MIDDLEWARE = [
@@ -86,21 +83,6 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
-=======
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.postgresql',
-#        'NAME': 'proyecto',
-#        'USER': 'postgres',
-#        'PASSWORD': '123',
-#        'HOST': 'localhost',
-#        'PORT': '5432'
-#    }
-#}
-
-
->>>>>>> 5f3ae44d9e6ece5b9db81cfaac1b3de8adf6f898
 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
@@ -137,15 +119,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-<<<<<<< HEAD
-=======
 
-# Necesario para usuario
 AUTH_USER_MODEL = 'usuarios.Usuario'
-# para subir imagen
-import os
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
-LOGIN_URL = 'login'
->>>>>>> 5f3ae44d9e6ece5b9db81cfaac1b3de8adf6f898
